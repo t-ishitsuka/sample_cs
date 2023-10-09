@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  mysql:
+    container_name: sample_cs_mysql
+    build:
+      dockerfile: ./docker/localhost/mysql/Dockerfile
+      context: .
+    ports:
+      - 3306:3306
+    volumes:
+      - ./docker/localhost/mysql/sql-data:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: local
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: password
+    healthcheck:
+     test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost", "-u", "user", "-ppassword"]
+     timeout: 20s
+     retries: 10
+

@@ -16,3 +16,9 @@ help:	## Show options
 
 build:	## Build docker container with no cache
 	docker compose build --no-cache
+
+up:		## Start docker contariner
+	docker compose up -d
+
+stop:	## Stop docker contariner
+	docker compose stop
