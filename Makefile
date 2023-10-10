@@ -23,5 +23,8 @@ up:		## Start docker contariner
 stop:	## Stop docker contariner
 	docker compose stop
 
+down:	## Remove docker contariner
+	docker compose down
+
 app:	## Connect app contariner
 	docker compose exec app bash

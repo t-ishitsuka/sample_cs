@@ -6,8 +6,15 @@ services:
     build:
       dockerfile: ./docker/localhost/app/Dockerfile
       context: .
+    ports:
+      - 80:80
+      - 8000:8000
+      - 8080:8080
+      - 5102:5102
+      - 7055:7055
+      - 14713:14713
     volumes:
-      - .:/src
+      - .:/app
     tty: true
     depends_on:
       - mysql
